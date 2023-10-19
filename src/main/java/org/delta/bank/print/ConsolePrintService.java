@@ -1,9 +1,11 @@
 package org.delta.bank.print;
 
+import com.google.inject.Singleton;
 import org.delta.bank.account.BaseBankAccount;
 import org.delta.bank.account.SaveBankAccount;
 import org.delta.bank.account.StudentBankAccount;
 
+@Singleton
 public class ConsolePrintService implements PrintInterface {
 
     public void printBankAccountBalance(BaseBankAccount bankAccount) {

@@ -1,5 +1,6 @@
 package org.delta.bank;
 
+import jakarta.inject.Inject;
 import org.delta.bank.account.*;
 import org.delta.bank.interest.InterestService;
 import org.delta.bank.moneyTransfer.MoneyTransferService;
@@ -11,21 +12,20 @@ import java.util.Map;
 
 public class Bank {
 
-    private OwnerService ownerService;
-    private MoneyTransferService moneyTransferService;
-    private InterestService interestService;
-    private PrintService printService;
-    private AccountService accountService;
+    @Inject private MoneyTransferService moneyTransferService;
+    @Inject private OwnerService ownerService;
+    @Inject private InterestService interestService;
+    @Inject private PrintService printService;
+    @Inject private AccountService accountService;
 
     public Bank() {
-        this.moneyTransferService = new MoneyTransferService();
-        this.interestService = new InterestService();
-        this.printService = new PrintService();
-        this.ownerService = new OwnerService();
-        this.accountService = new AccountService();
     }
 
     public void run() throws Exception {
+
+
+        MyExampleService mes = MyExampleService.getInstance();
+
         this.printService.debug("Hello bank");
 
         Owner owner = this.ownerService.createAndSaveOwner("Tomas", "Pesek");
@@ -71,5 +71,4 @@ public class Bank {
         this.printService.debug("Account list: interests end");
 
     }
-
 }

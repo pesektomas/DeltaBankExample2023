@@ -1,8 +1,10 @@
 package org.delta.bank.moneyTransfer;
 
+import com.google.inject.Singleton;
 import org.delta.bank.account.BaseBankAccount;
 import org.delta.bank.moneyTransfer.validators.SourceAccountValidationService;
 
+@Singleton
 public class MoneyTransferService {
 
     private final SourceAccountValidationService sourceAccountValidationService;

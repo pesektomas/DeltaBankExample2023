@@ -1,28 +1,32 @@
 package org.delta.bank.account;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import org.delta.bank.persons.Owner;
 import org.delta.bank.print.PrintService;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Singleton
 public class AccountService {
 
-    private final BankAccountFactory bankAccountFactory;
+    @Inject private BankAccountFactory bankAccountFactory;
+    @Inject private PrintService printService;
+
     private Map<String, BaseBankAccount> accounts;
-    private PrintService printService;
 
     public AccountService() {
         this.accounts = new HashMap<>();
-
-        this.bankAccountFactory = new BankAccountFactory();
-        this.printService = new PrintService();
     }
     
     public BaseBankAccount createAndStoreNewBankAccount(Owner owner, float balance) {
         BaseBankAccount bankAccount = this.bankAccountFactory.createBaseBankAccount(owner, balance);
         this.accounts.put(bankAccount.getBankAccountNumber(), bankAccount);
         this.printService.printBankAccountBalance(bankAccount);
+
+
+        bankAccount.setOrganization("CSOB");
 
         return bankAccount;
     }

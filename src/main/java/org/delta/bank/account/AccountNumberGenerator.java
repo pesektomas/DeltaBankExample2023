@@ -1,7 +1,10 @@
 package org.delta.bank.account;
 
+import com.google.inject.Singleton;
+
 import java.util.concurrent.ThreadLocalRandom;
 
+@Singleton
 public class AccountNumberGenerator {
 
     public String generateAccountNumber() {

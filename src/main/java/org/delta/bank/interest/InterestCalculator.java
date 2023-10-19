@@ -1,14 +1,13 @@
 package org.delta.bank.interest;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import org.delta.bank.account.BaseBankAccount;
 
+@Singleton
 public class InterestCalculator {
 
-    private InterestConfigLoader interestConfigLoader;
-
-    public InterestCalculator() {
-        this.interestConfigLoader = new InterestConfigLoader();
-    }
+    @Inject private InterestConfigLoader interestConfigLoader;
 
     public double calculateInterest(BaseBankAccount bankAccount) {
 

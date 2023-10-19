@@ -10,6 +10,8 @@ public class BaseBankAccount {
 
     protected double balance;
 
+    protected String organization;
+
     public BaseBankAccount(Owner owner, String bankAccountNumber, double balance) {
         this.owner = owner;
         this.bankAccountNumber = bankAccountNumber;
@@ -38,5 +40,9 @@ public class BaseBankAccount {
 
     public String getBankAccountNumber() {
         return bankAccountNumber;
+    }
+
+    public void setOrganization(String organization) {
+        this.organization = organization;
     }
 }

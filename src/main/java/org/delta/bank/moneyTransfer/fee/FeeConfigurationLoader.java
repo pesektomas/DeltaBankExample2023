@@ -1,9 +1,11 @@
 package org.delta.bank.moneyTransfer.fee;
 
+import com.google.inject.Singleton;
 import org.delta.bank.account.BaseBankAccount;
 import org.delta.bank.account.SaveBankAccount;
 import org.delta.bank.account.StudentBankAccount;
 
+@Singleton
 public class FeeConfigurationLoader {
 
     private static final double PERCENT_FEE_LIMIT = 1000;

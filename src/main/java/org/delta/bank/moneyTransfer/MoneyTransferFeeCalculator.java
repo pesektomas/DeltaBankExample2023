@@ -1,11 +1,13 @@
 package org.delta.bank.moneyTransfer;
 
+import com.google.inject.Singleton;
 import org.delta.bank.account.BaseBankAccount;
 import org.delta.bank.account.SaveBankAccount;
 import org.delta.bank.account.StudentBankAccount;
 import org.delta.bank.moneyTransfer.fee.FeeConfigurationLoader;
 import org.delta.bank.moneyTransfer.fee.FeeConfigurator;
 
+@Singleton
 public class MoneyTransferFeeCalculator {
 
     private final FeeConfigurationLoader feeConfigurationLoader;

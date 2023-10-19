@@ -1,14 +1,13 @@
 package org.delta.bank.persons;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import org.delta.bank.print.PrintService;
 
+@Singleton
 public class OwnerFactory {
 
-    private PrintService printService;
-
-    public OwnerFactory() {
-        this.printService = new PrintService();
-    }
+    @Inject private PrintService printService;
 
     public Owner createOwner(String name, String lastName) {
 

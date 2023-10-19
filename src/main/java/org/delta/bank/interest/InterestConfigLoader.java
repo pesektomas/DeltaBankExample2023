@@ -1,9 +1,11 @@
 package org.delta.bank.interest;
 
+import com.google.inject.Singleton;
 import org.delta.bank.account.BaseBankAccount;
 import org.delta.bank.account.SaveBankAccount;
 import org.delta.bank.account.StudentBankAccount;
 
+@Singleton
 public class InterestConfigLoader {
 
     private static final double INTEREST_SAVING_ACCOUNT = 0.005;

@@ -1,14 +1,19 @@
 package org.delta.bank.print;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import org.delta.bank.account.BaseBankAccount;
 
+@Singleton
 public class PrintService {
 
-    private PrintInterface printService;
+    @Inject private PrintInterface printService;
 
+    /**
     public PrintService() {
         this.printService = new ConsolePrintService();
     }
+    */
 
     public void printBankAccountBalance(BaseBankAccount bankAccount) {
         this.printService.printBankAccountBalance(bankAccount);
