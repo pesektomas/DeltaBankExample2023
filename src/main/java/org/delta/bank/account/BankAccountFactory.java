@@ -15,6 +15,14 @@ public class BankAccountFactory {
         return new BaseBankAccount(owner, bankAccountNumber, balance);
     }
 
+    public BaseBankAccount createBaseBankAccount(BaseBankAccountJsonSerializationObject baseBankAccountJsonSerializationObject) {
+        return new BaseBankAccount(
+                baseBankAccountJsonSerializationObject.owner,
+                baseBankAccountJsonSerializationObject.bankAccountNumber,
+                baseBankAccountJsonSerializationObject.balance
+        );
+    }
+
     public StudentBankAccount createStudentBankAccount(Owner owner, double balance) {
         String bankAccountNumber = this.accountNumberGenerator.generateAccountNumber();
 

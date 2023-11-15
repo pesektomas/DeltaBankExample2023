@@ -6,8 +6,11 @@ import org.delta.bank.interest.InterestService;
 import org.delta.bank.moneyTransfer.MoneyTransferService;
 import org.delta.bank.persons.Owner;
 import org.delta.bank.persons.OwnerService;
+import org.delta.bank.persons.serialization.OwnerJsonSerialization;
 import org.delta.bank.print.PrintService;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
 import java.util.Map;
 
 public class Bank {
@@ -17,8 +20,9 @@ public class Bank {
     @Inject private InterestService interestService;
     @Inject private PrintService printService;
     @Inject private AccountService accountService;
-
+    @Inject private OwnerJsonSerialization ownerJsonSerialization;
     public Bank() {
+
     }
 
     public void run() throws Exception {
@@ -70,5 +74,14 @@ public class Bank {
         }
         this.printService.debug("Account list: interests end");
 
+
+        String ownerInJson = this.ownerJsonSerialization.jsonSerializeOwner(owner);
+        this.printService.debug("Owner serialization");
+        this.printService.debug(ownerInJson);
+
+
+        JAXBContext context = JAXBContext.newInstance(Owner.class);
+        Marshaller marshaller = context.createMarshaller();
+        marshaller.marshal(owner, System.out);
     }
 }

@@ -1,10 +1,21 @@
 package org.delta.bank.persons;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Owner {
 
-    private String firstName;
+    @XmlElement(name = "firstName")
+    public String firstName;
 
+    @XmlElement(name = "firstName")
     private String lastName;
+
+    public Owner() {
+        this.firstName = "";
+        this.lastName = "";
+    }
 
     public Owner(String firstName, String lastName) {
         this.firstName = firstName;
